@@ -36,6 +36,6 @@ if st.button('Predict Price'):
     fuel_type = encode_dict['fuel_type'][fuel_type]
     transmission_type = encode_dict['transmission_type'][transmission_type]
     price = model_pred(fuel_type,transmission_type,engine,seats) 
-    pattern = re.compile(r'(?<=\[)(\d\.?\d+)(?=\])')
+    pattern = re.compile(r'(?<=\[)(\d*\.?\d*)(?=\])')
     price_ = re.findall(pattern,str(price))
     st.text(f'Predicted Price of the Car: {price_[0]} Lacs.')
